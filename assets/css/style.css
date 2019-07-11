@@ -1,9 +1,6 @@
 #gifButtons{
-    display: inline;
+    display: flex;
     text-align: center;
 
 }
 
-#gifsView {
-
-}

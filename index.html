@@ -2,53 +2,58 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>You can Has TV GIFs</title>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>You can Has TV GIFs</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
-
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
 </head>
 
 <body>
 
 
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1>GIFS from tv perfect for everyday situations</h1>
+            <h1 class="display-4">GIFS from TV Shows You Love</h1>
+            <p class="lead">Click on a button with the name of a show you like to generate a collection of GIFs! Dont
+                see a button for you? Just type the name of your go-to TV Show in the text box, click the add it button
+                and get your GIF on!</p>
         </div>
     </div>
 
-    <div id="gifButtons" class="container">
-        <div class="row">
+    <div id="gifBtns" class="d-flex align-content-start flex-wrap">
 
-        </div>
+
+
+
     </div>
+
+
     <div class="form-group">
-        <label for="topicInput">
+        <label for="textInput">
             <h3>Whats your go-to TV show?</h3>
         </label>
-        <input type="text" id="topicInput">
+        <input type="text" id="textInput">
     </div>
-    <input id="addGif" type="submit" value="Add a Show" class="btn btn-primary">
+    <input id="addGif" type="submit" value="Add a Show" class="btn btn-primary" display="inline">
 
     <input id="removeGif" type="submit" value="Remove Show" class="btn btn-primary">
     </form>
-    <div class="container">
+    <div class="d-flex flex-wrap">
+        <div id="gifsView" class="d-flex align-content-start flex-wrap">
 
-
-        <div id="gifsView">
         </div>
 
     </div>
 
 
-    <form id="gifForm" role="form">
-        </div>
-        </div>
+
+    </div>
+    </div>
 
 
 
@@ -56,12 +61,12 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 
 
-        <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 
 

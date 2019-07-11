@@ -4,48 +4,50 @@ $(document).ready(function () {
 
 
 
-    function displayGifButtons() {
-        $("#gifButtons").empty();
+    function createShowBtns() {
+        $("#gifBtns").empty();
         for (var i = 0; i < topic.length; i++) {
-            var gifButton = $("<button>");
-            gifButton.addClass("show");
-            gifButton.addClass("btn btn-primary")
-            gifButton.attr("data-name", topic[i]);
-            gifButton.text(topic[i]);
-            $("#gifButtons").append(gifButton);
+            var gifBtn = $("<button>");
+            gifBtn.addClass("show");
+            gifBtn.addClass("btn btn-primary")
+            gifBtn.attr("data-name", topic[i]);
+            gifBtn.text(topic[i]);
+            $("#gifBtns").append(gifBtn);
         }
     }
 
 
 
-    function addNewButton() {
+    function addNewBtn() {
         $("#addGif").on("click", function () {
-            var show = $("#topicInput").val().trim();
+            var show = $("#textInput").val().trim();
             if (show == "") {
                 return false;
             }
             topic.push(show);
 
-            displayGifButtons();
+            createShowBtns();
             return false;
         });
     }
 
 
-    function removeLastButton() {
+    function removeLastBtn() {
         $("removeGif").on("click", function () {
             topic.pop(show);
-            displayGifButtons();
+
+            createShowBtns();
             return false;
         });
-
     }
+
+
 
 
 
     function displayGifs() {
         var show = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + show + "&api_key=lbz4p2rvwHS0IhiaxWWEbVSfOfSINOb0";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + show + "&api_key=lbz4p2rvwHS0IhiaxWWEbVSfOfSINOb0" + "&limit=10";
 
         $.ajax({
             url: queryURL,
@@ -74,8 +76,9 @@ $(document).ready(function () {
 
                     gifImage.attr("data-animate", results[i].images.fixed_height_small.url);
 
-                    gifImage.attr("data-state", "still");
                     gifImage.addClass("image");
+                    gifImage.attr("data-state", "still");
+
                     gifDiv.append(gifImage);
 
                     $("#gifsView").prepend(gifDiv);
@@ -85,9 +88,10 @@ $(document).ready(function () {
 
 
 
-    displayGifButtons();
-    addNewButton();
-    removeLastButton();
+    createShowBtns();
+    addNewBtn();
+    removeLastBtn();
+
 
 
 
@@ -102,7 +106,6 @@ $(document).ready(function () {
             $(this).attr('src', $(this).data('still'));
             $(this).attr('data-state', 'still');
         }
-
     });
-
 });
+
