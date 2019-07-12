@@ -1,17 +1,17 @@
 $(document).ready(function () {
 
-    var topic = ["It's Always Sunny in Philadelphia", "Game of Thrones", "Last Week Tonight", "Rick and Morty", "Bob's Burgers", "The Office", "Parks & Recreation", "Letterkenny"];
+    var topics = ["It's Always Sunny in Philadelphia", "Game of Thrones", "Last Week Tonight", "Rick and Morty", "Bob's Burgers", "The Office", "Parks & Recreation", "Letterkenny"];
 
 
 
     function createShowBtns() {
         $("#gifBtns").empty();
-        for (var i = 0; i < topic.length; i++) {
+        for (var i = 0; i < topics.length; i++) {
             var gifBtn = $("<button>");
             gifBtn.addClass("show");
-            gifBtn.addClass("btn btn-primary")
-            gifBtn.attr("data-name", topic[i]);
-            gifBtn.text(topic[i]);
+            gifBtn.addClass("btn")
+            gifBtn.attr("data-name", topics[i]);
+            gifBtn.text(topics[i]);
             $("#gifBtns").append(gifBtn);
         }
     }
@@ -20,21 +20,19 @@ $(document).ready(function () {
 
     function addNewBtn() {
         $("#addGif").on("click", function () {
-            var show = $("#textInput").val().trim();
-            if (show == "") {
-                return false;
-            }
-            topic.push(show);
-
+            event.preventDefault();
+            var newShow = $("#textInput").val().trim();
+            topics.push(newShow);
+            $("#textInput").val('');
             createShowBtns();
-            return false;
+
         });
     }
 
 
     function removeLastBtn() {
         $("removeGif").on("click", function () {
-            topic.pop(show);
+            topics.pop(show);
 
             createShowBtns();
             return false;
@@ -85,6 +83,7 @@ $(document).ready(function () {
                 }
             });
     }
+
 
 
 
